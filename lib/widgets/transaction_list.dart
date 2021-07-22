@@ -20,7 +20,7 @@ class TransactionList extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    '\$${userTransactions[index].amount}',
+                    '\$${userTransactions[index].amount.toStringAsFixed(2)}',
                     style: kTxAmountStyle,
                   ),
                   decoration: BoxDecoration(
