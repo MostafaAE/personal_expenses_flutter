@@ -8,15 +8,17 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('App Bar'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Card(
-            color: Colors.lightGreen,
-            child: Text('CHART'),
-          ),
-          UserTransactions(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Card(
+              color: Colors.lightGreen,
+              child: Text('CHART'),
+            ),
+            UserTransactions(),
+          ],
+        ),
       ),
     );
   }
