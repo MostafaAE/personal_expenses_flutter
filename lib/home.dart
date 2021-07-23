@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expenses_flutter/utilities/constants.dart';
 
 import './models/transaction.dart';
 import './widgets/new_transaction.dart';
@@ -11,12 +12,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-        id: 't1', title: 'New Shoes', amount: 69.69, date: DateTime.now()),
-    Transaction(
-        id: 't2', title: 'New Hat', amount: 69.69, date: DateTime.now()),
-    Transaction(
-        id: 't3', title: 'Groceries', amount: 69.69, date: DateTime.now()),
+    // Transaction(
+    //     id: 't1', title: 'New Shoes', amount: 69.69, date: DateTime.now()),
+    // Transaction(
+    //     id: 't2', title: 'New Hat', amount: 69.69, date: DateTime.now()),
+    // Transaction(
+    //     id: 't3', title: 'Groceries', amount: 69.69, date: DateTime.now()),
   ];
 
   void _addTransaction(String txTitle, double txAmount) {
@@ -33,17 +34,19 @@ class _HomePageState extends State<HomePage> {
 
   void _startAddNewTransaction() {
     showModalBottomSheet(
-        context: context,
-        builder: (_) {
-          return NewTransaction(addTx: _addTransaction);
-        });
+      context: context,
+      builder: (_) {
+        return NewTransaction(addTx: _addTransaction);
+      },
+      backgroundColor: kBackgroundColor,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('App Bar'),
+        title: Text('Expenses Planner'),
         actions: [
           IconButton(
             icon: Icon(
@@ -63,7 +66,6 @@ class _HomePageState extends State<HomePage> {
             ),
             Column(
               children: [
-                NewTransaction(addTx: _addTransaction),
                 TransactionList(
                   userTransactions: _userTransactions,
                 ),
@@ -76,6 +78,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _startAddNewTransaction,
+        backgroundColor: kSecondaryColor,
       ),
     );
   }

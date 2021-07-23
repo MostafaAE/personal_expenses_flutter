@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-const kTxAmountStyle = TextStyle(
-  fontWeight: FontWeight.bold,
-  fontSize: 22,
-  color: Colors.purple,
-);
+const kPrimaryColor = Color(0xFFFFE194);
+const kSecondaryColor = Color(0xFFE8F6EF);
+// const kSecondaryColor = Color(0xFFB8DFD8);
+const kBackgroundColor = Color(0xFF4C4C6D);
 
 const kTxTitleStyle = TextStyle(
   fontSize: 18,

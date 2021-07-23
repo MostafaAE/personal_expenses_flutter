@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+import '../utilities/constants.dart';
+
 class NewTransaction extends StatefulWidget {
   final Function addTx;
   NewTransaction({required this.addTx});
@@ -42,11 +44,13 @@ class _NewTransactionState extends State<NewTransaction> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: kBackgroundColor,
       child: Column(
         children: [
           TextField(
             decoration: InputDecoration(
               labelText: 'Title',
+              labelStyle: Theme.of(context).textTheme.title,
             ),
             controller: titleController,
             onSubmitted: (_) => submitData(context),
@@ -54,15 +58,15 @@ class _NewTransactionState extends State<NewTransaction> {
           TextField(
             decoration: InputDecoration(
               labelText: 'Amount',
+              labelStyle: Theme.of(context).textTheme.title,
             ),
             controller: amountController,
             keyboardType: TextInputType.numberWithOptions(decimal: true),
             onSubmitted: (_) => submitData(context),
           ),
           TextButton(
-            child: Text(
-              'Add Transaction',
-            ),
+            child: Text('Add Transaction',
+                style: Theme.of(context).textTheme.title),
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all(Colors.deepPurple),
             ),
