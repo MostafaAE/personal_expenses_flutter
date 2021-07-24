@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_expenses_flutter/utilities/constants.dart';
 
 import './models/transaction.dart';
+import './widgets/chart.dart';
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 
@@ -12,13 +13,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //     id: 't1', title: 'New Shoes', amount: 69.69, date: DateTime.now()),
-    // Transaction(
-    //     id: 't2', title: 'New Hat', amount: 69.69, date: DateTime.now()),
-    // Transaction(
-    //     id: 't3', title: 'Groceries', amount: 69.69, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'New Shoes', amount: 69.69, date: DateTime.now()),
+    Transaction(
+        id: 't2', title: 'New Hat', amount: 69.69, date: DateTime.now()),
+    Transaction(
+        id: 't3', title: 'Groceries', amount: 69.69, date: DateTime.now()),
   ];
+
+  List<Transaction> get _recentTransactions {
+    final lastWeek = DateTime.now().subtract(Duration(days: 7));
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(lastWeek);
+    }).toList();
+  }
 
   void _addTransaction(String txTitle, double txAmount) {
     var newTransaction = Transaction(
@@ -60,10 +68,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Card(
-              color: Colors.lightGreen,
-              child: Text('CHART'),
-            ),
+            Chart(_recentTransactions),
             Column(
               children: [
                 TransactionList(
