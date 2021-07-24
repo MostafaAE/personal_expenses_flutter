@@ -27,10 +27,10 @@ class _NewTransactionState extends State<NewTransaction> {
       if (enteredTitle.isEmpty || enteredAmount <= 0) throw FormatException();
     } catch (e) {
       Alert(
-              context: ctx,
-              title: 'Invalid transaction data',
-              desc: "Enter valid title and amount.")
-          .show();
+        context: context,
+        title: 'Invalid transaction data',
+        desc: "Enter valid title and amount.",
+      ).show();
       return;
     }
 
@@ -44,7 +44,7 @@ class _NewTransactionState extends State<NewTransaction> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: kBackgroundColor,
+      color: kDarkGrey,
       child: Column(
         children: [
           TextField(

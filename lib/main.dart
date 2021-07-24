@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './utilities/constants.dart';
 import 'home.dart';
-import 'utilities/constants.dart';
 
 void main() => runApp(PersonalExpenses());
 
@@ -12,8 +12,7 @@ class PersonalExpenses extends StatelessWidget {
       title: 'Expenses Planner',
       theme: ThemeData(
         primaryColor: kPrimaryColor,
-        highlightColor: kPrimaryColor,
-        accentColor: kSecondaryColor,
+        accentColor: kPrimaryColor,
         scaffoldBackgroundColor: ThemeData.dark().scaffoldBackgroundColor,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.dark().textTheme.copyWith(

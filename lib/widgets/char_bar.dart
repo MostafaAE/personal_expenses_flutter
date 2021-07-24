@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personal_expenses_flutter/utilities/constants.dart';
+
+import '../utilities/constants.dart';
 
 class ChartBar extends StatelessWidget {
   final String label;
@@ -15,9 +16,11 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          '\$$spendingAmount',
-          style: kChartBarStyle,
+        FittedBox(
+          child: Text(
+            '\$$spendingAmount',
+            style: kChartBarStyle,
+          ),
         ),
         SizedBox(
           height: 4,

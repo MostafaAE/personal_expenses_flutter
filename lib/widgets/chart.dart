@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/transaction.dart';
+import '../utilities/constants.dart';
 import '../widgets/char_bar.dart';
 
 class Chart extends StatelessWidget {
@@ -18,8 +19,6 @@ class Chart extends StatelessWidget {
             tx.date.month == weekDay.month &&
             tx.date.year == weekDay.year) totalSum += tx.amount;
       }
-      print(totalSum);
-      print(DateFormat.E().format(weekDay).substring(0, 1));
       return {
         'day': DateFormat.E().format(weekDay).substring(0, 1),
         'amount': totalSum
@@ -35,21 +34,27 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(groupedTransactionValues);
     return Card(
-      margin: EdgeInsets.all(20),
-      elevation: 5,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: groupedTransactionValues.map((data) {
-          return ChartBar(
-            label: '${data['day']}',
-            spendingAmount: data['amount'] as double,
-            spendingPct: totalSpending == 0
-                ? 0
-                : (data['amount'] as double) / totalSpending,
-          );
-        }).toList(),
+      color: kSecondaryColor,
+      margin: EdgeInsets.all(10),
+      elevation: 6,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactionValues.map((data) {
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChartBar(
+                label: '${data['day']}',
+                spendingAmount: data['amount'] as double,
+                spendingPct: totalSpending == 0
+                    ? 0
+                    : (data['amount'] as double) / totalSpending,
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }

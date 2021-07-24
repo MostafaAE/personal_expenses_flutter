@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:personal_expenses_flutter/utilities/constants.dart';
 
 import './models/transaction.dart';
+import './utilities/constants.dart';
 import './widgets/chart.dart';
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       builder: (_) {
         return NewTransaction(addTx: _addTransaction);
       },
-      backgroundColor: kBackgroundColor,
+      backgroundColor: kDarkGrey,
     );
   }
 
@@ -83,7 +83,6 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _startAddNewTransaction,
-        backgroundColor: kSecondaryColor,
       ),
     );
   }
