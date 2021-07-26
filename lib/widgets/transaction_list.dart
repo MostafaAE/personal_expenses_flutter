@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 600,
       child: userTransactions.isEmpty
           ? Column(
               children: [
@@ -24,7 +24,7 @@ class TransactionList extends StatelessWidget {
                   height: 10,
                 ),
                 Container(
-                  height: 200,
+                  height: 500,
                   child: Image.asset(
                     'assets/images/waiting.png',
                     fit: BoxFit.cover,
@@ -82,41 +82,3 @@ class TransactionList extends StatelessWidget {
     );
   }
 }
-
-// Row(
-// children: [
-// Container(
-// margin:
-// EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-// padding: EdgeInsets.all(10),
-// child: Text(
-// '\$${userTransactions[index].amount.toStringAsFixed(2)}',
-// style: TextStyle(
-// fontWeight: FontWeight.bold,
-// fontSize: 22,
-// color: kSecondaryColor,
-// ),
-// ),
-// decoration: BoxDecoration(
-// border: Border.all(
-// color: kSecondaryColor,
-// width: 2,
-// ),
-// ),
-// ),
-// Column(
-// crossAxisAlignment: CrossAxisAlignment.start,
-// children: [
-// Text(
-// userTransactions[index].title,
-// style: Theme.of(context).textTheme.title,
-// ),
-// Text(
-// DateFormat.yMMMEd()
-// .format(userTransactions[index].date),
-// style: kTxDateStyle,
-// ),
-// ],
-// )
-// ],
-// ),

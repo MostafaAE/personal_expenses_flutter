@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import './models/transaction.dart';
@@ -53,6 +54,10 @@ class _HomePageState extends State<HomePage> {
         return NewTransaction(addTx: _addTransaction);
       },
       backgroundColor: kDarkGrey,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
+      ),
     );
   }
 
