@@ -30,10 +30,19 @@ class _HomePageState extends State<HomePage> {
 
   void _addTransaction(String txTitle, double txAmount, DateTime txDate) {
     var newTransaction = Transaction(
-        id: txDate.toString(), title: txTitle, amount: txAmount, date: txDate);
+        id: DateTime.now().toString(),
+        title: txTitle,
+        amount: txAmount,
+        date: txDate);
 
     setState(() {
       _userTransactions.add(newTransaction);
+    });
+  }
+
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((tx) => tx.id == id);
     });
   }
 
@@ -70,6 +79,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 TransactionList(
                   userTransactions: _userTransactions,
+                  deleteTransaction: _deleteTransaction,
                 ),
               ],
             ),
