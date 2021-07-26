@@ -1,16 +1,13 @@
-# personal_expenses_flutter
+# Expenses Planner
+Personal Expenses Planner App Using Flutter & Dart 
 
-A new Flutter project.
+## Overview
+This is a Personal Expenses Planner that will help you to keep track of all your expenses and analyse them using a simple chart 📊.
+This Application is implemented using Flutter & Dart.
 
-## Getting Started
+## Features
+* Add a new transaction.
+* Delete any transaction.
+* Display your weekly expenses in a simple chart.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Expenses Planner Demo](https://user-images.githubusercontent.com/47731377/127065828-674126c4-4353-40b8-b7fd-62765beb0f93.gif)
