@@ -14,42 +14,29 @@ class ChartBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 20,
-          child: FittedBox(
-            child: Text(
-              '\$$spendingAmount',
-              style: kChartBarStyle,
+    return LayoutBuilder(builder: (ctx, constraints) {
+      return Column(
+        children: [
+          Container(
+            height: constraints.maxHeight * 0.15,
+            child: FittedBox(
+              child: Text(
+                '\$$spendingAmount',
+                style: kChartBarStyle,
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          height: 4,
-        ),
-        Container(
-          height: 60,
-          width: 10,
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: kSecondaryColor,
-                  border: Border.all(
-                    color: kBackgroundColor,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
-              ),
-              FractionallySizedBox(
-                heightFactor: spendingPct,
-                child: Container(
+          SizedBox(
+            height: constraints.maxHeight * 0.05,
+          ),
+          Container(
+            height: constraints.maxHeight * 0.6,
+            width: 10,
+            child: Stack(
+              children: [
+                Container(
                   decoration: BoxDecoration(
-                    color: kPrimaryColor,
+                    color: kSecondaryColor,
                     border: Border.all(
                       color: kBackgroundColor,
                       width: 1.0,
@@ -59,18 +46,38 @@ class ChartBar extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
-            ],
+                FractionallySizedBox(
+                  heightFactor: spendingPct,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: kPrimaryColor,
+                      border: Border.all(
+                        color: kBackgroundColor,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height: 4,
-        ),
-        Text(
-          label,
-          style: kChartBarStyle,
-        ),
-      ],
-    );
+          SizedBox(
+            height: constraints.maxHeight * 0.05,
+          ),
+          Container(
+            height: constraints.maxHeight * 0.15,
+            child: FittedBox(
+              child: Text(
+                label,
+                style: kChartBarStyle,
+              ),
+            ),
+          ),
+        ],
+      );
+    });
   }
 }

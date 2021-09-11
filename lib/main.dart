@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import './utilities/constants.dart';
 import 'home.dart';
 
-void main() => runApp(PersonalExpenses());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(PersonalExpenses());
+}
 
 class PersonalExpenses extends StatelessWidget {
   @override
